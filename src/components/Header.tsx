@@ -28,34 +28,6 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 >
                     Ryan
                 </Link>
-                <div className="flex space-x-6">
-                    <Link
-                        href="/about"
-                        className="header-item headerLink"
-                    >
-                        About
-                    </Link>
-                    {/*
-                    <Link
-                        href="/projects"
-                        className="header-item headerLink"
-                    >
-                        Projects
-                    </Link>
-                        */}
-                    <Link
-                        href="/resume.pdf"
-                        className="header-item headerLink"
-                    >
-                        Resume
-                    </Link>
-                    <Link
-                        href="/transcript.pdf"
-                        className="header-item headerLink"
-                    >
-                        Transcript
-                    </Link>
-                </div>
             </nav>
         </header>
     ) : null;

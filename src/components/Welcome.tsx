@@ -35,9 +35,6 @@ export default function Welcome() {
             <NameAnimation />
             {/* Fade-in controlled by `fadeIn` state */}
             <div className={`transition-opacity duration-1000 ${fadeIn ? "opacity-100" : "opacity-0"}`}>
-                <p className="text-lg md:text-xl mb-12 text-center max-w-2xl leading-relaxed">
-                    Designing efficient systems and scalable applications with a focus on performance and clarity.
-                </p>
                 <div className="relative text-center z-20 text-2xl font-bold animate-bounce mb-8">
                     Press Enter to continue {'>>'}
                 </div>
