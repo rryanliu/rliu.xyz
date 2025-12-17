@@ -48,14 +48,14 @@ For example: the set of integers under $+$.
 4. the sum of 2 integers is an integer.
 
 Ok, now let's apply it to our problem.
-First, let's show $\mathbb{Z}/8\mathbb{Z}$ ($\{0, 1, \ldots, 7\}$) is a group under $\oplus$.
+First, let's show $\mathbb{Z}/8\mathbb{Z}$ (as in the set $\{0, 1, \ldots, 7\}$) is a group under $\oplus$.
 
 1. xor is associative
 2. the identity element is 0
 3. the inverse of each element is itself.
 This is because when a bit is set in $x$, it is set in $x^{-1}$ to make that bit 0 after applying the operation.
 And when a bit is unset in $x$, ... blah blah blah same reasoning.
-4. taking the xor of 2 natural numbers with msb $\le 3$ cannot result in a number with msb $> 3$ so it is closed
+4. taking the xor of 2 natural numbers with msb (most significant bit) $\le 3$ cannot result in a number with msb $> 3$ so it is closed
 
 My solution:
 
@@ -77,10 +77,11 @@ How can we transform $(r, c)$ to $(r^{\prime}, c^{\prime})$ by flipping up to on
 
 This is where my intuition in group theory guided me to a solution, although knowledge of group
 theory is not required to solve this puzzle.
-Since $r^{-1} r^{\prime}$ is in $\mathbb{Z} / 8 \mathbb{Z}$ because $\mathbb{Z} / 8 \mathbb{Z}$ is closed, we can flip any coin in this corresponding row
-to transform $r$ to $r^{\prime}$.
-Similarly, we can also flip a coin in the $c^{-1} c^{\prime}$-th column to transform $c$ into $c^{\prime}$.
-This works for 2 reasons:
+First, see that $x \oplus (x \oplus y) = x \oplus (x^{-1} \oplus y) = (x \oplus x^{-1}) \oplus y = 0 \oplus y = y$.
+Since $r \oplus r^{\prime}$ is in $\mathbb{Z} / 8 \mathbb{Z}$ because $\mathbb{Z} / 8 \mathbb{Z}$ is closed, we can flip any coin in this corresponding row, and then recalculate new powers $p_i^{\prime}$ and apply our previous formula to obtain $r^{\prime}$.
+Similarly, we can also flip a coin in the $c \oplus c^{\prime}$-th column to transform $c$ into $c^{\prime}$.
+
+This works for a couple reasons:
 First, there is always going to be an intersection between any row and column.
 Secondly, $\oplus$ is an involution, so every element has order 2.
 Therefore we need only flip up to one coin to transform an element into any element we desire.
