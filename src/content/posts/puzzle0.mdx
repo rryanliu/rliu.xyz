@@ -7,7 +7,7 @@ tags: ["puzzle", "blog"]
 
 After my abstract algebra final, Harry, Nathan and I went downtown to get hotpot.
 On our drive back, Harry and I were thinking about a famous problem.
-A stroke of inspiration hit me and I solved it minutes before I dropped him off.
+A rare stroke of inspiration hit me, and I solved it when we were almost home.
 The statement is as follows:
 
 Harry and Nathan have been trapped in a mental facility.
@@ -66,6 +66,7 @@ Similarly, let $e_i = A_{0i} \oplus A_{1i} \oplus \ldots \oplus A_{7i}$.
 Let $r = 0^{p_0} \oplus 1^{p_1} \oplus \ldots \oplus 7^{p_7}$.
 In this case, $x^y$ does not mean $x$ to the power of $y$ under multiplication,
 but rather $x^y \;=\; \underbrace{x \oplus x \oplus \cdots \oplus x}_{y\ \text{times}}$.
+We can see that $x^y \in \{0, x\}$ because $x = x^{-1}$.
 
 Let $c = 0^{e_0} \oplus 1^{e_1} \oplus \ldots \oplus 7^{e_7}$.
 Let $(r^{\prime}, c^{\prime})$ be the location of the key.
@@ -73,7 +74,7 @@ How can we transform $(r, c)$ to $(r^{\prime}, c^{\prime})$ by flipping up to on
 
 This is where my intuition in group theory guided me to a solution, although knowledge of group
 theory is not required to solve this puzzle.
-Since $r^{-1} r^{\prime}$ is in $\mathbb{Z} / 8 \mathbb{Z}$, we can flip any coin in this row
+Since $r^{-1} r^{\prime}$ is in $\mathbb{Z} / 8 \mathbb{Z}$ because $\mathbb{Z} / 8 \mathbb{Z}$ is closed, we can flip any coin in this corresponding row
 to transform $r$ to $r^{\prime}$.
 Similarly, we can also flip a coin in the $c^{-1} c^{\prime}$-th column to transform $c$ into $c^{\prime}$.
 This works for 2 reasons:
@@ -86,4 +87,6 @@ flip the coin in row $r \oplus r^{\prime}$ and $c \oplus c^{\prime}$ (because $x
 Then, when Nathan comes in and calculates $r$ and $c$ using the same process described previously,
 he will find that $r$ and $c$ mark the square with the key.
 
-Yeah that's it
+Now note that this will not work for $n \times n$ chessboards when $n$ is not a power of 2, because then
+$\mathbb{Z} / n \mathbb{Z}$ is not closed under $\oplus$.
+Think about combining with elements that have the msb flipped
