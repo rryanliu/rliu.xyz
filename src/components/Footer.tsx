@@ -132,7 +132,7 @@ export default function Footer() {
                     </a>
                     {/* Instagram Icon */}
                     <a
-                        href="https://www.instagram.com/headinmyhands_/"
+                        href="https://www.instagram.com/rryanliu/"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={hovered === 'instagram' ? hoverStyle : defaultStyle}
@@ -149,7 +149,7 @@ export default function Footer() {
                             }
                         />
                     </a>
-                    {/* Goodreads Icon */}
+                    {/* Goodreads Icon 
                     <a
                         href="https://www.goodreads.com/handsinmyhead"
                         target="_blank"
@@ -167,7 +167,7 @@ export default function Footer() {
                                 hovered === 'goodreads' ? imageHoverStyle : imageDefaultStyle
                             }
                         />
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </footer>

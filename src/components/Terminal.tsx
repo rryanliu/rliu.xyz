@@ -5,8 +5,8 @@ import useDarkMode from "@/hooks/useDarkMode";
 export default function Terminal() {
     const [input, setInput] = useState("");
     const [history, setHistory] = useState<React.ReactNode[]>([]);
-    const [currentDir, setCurrentDir] = useState("~"); // Emulate starting directory
-    const terminalHistoryRef = useRef<HTMLDivElement>(null); // Reference to the terminal history div
+    const [currentDir, setCurrentDir] = useState("~");
+    const terminalHistoryRef = useRef<HTMLDivElement>(null);
 
     // Dark Mode hook
     const { darkMode, toggleDarkMode, turnOnDarkMode, turnOffDarkMode } = useDarkMode();

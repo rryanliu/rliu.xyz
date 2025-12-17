@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 
 // Load GeistSans Font
 const geistSans = localFont({
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${firaCode.variable} ${fixedSys.variable} antialiased font-fira-code font-red-600`}
             >
-                <Header />
+            {/*<Header />*/}
                 {children}
             </body>
         </html>
