@@ -5,50 +5,50 @@ import "@/styles/globals.css";
 
 // Load GeistSans Font
 const geistSans = localFont({
-    src: "/fonts/GeistVF.woff", // Path to the font in the public directory
+    src: "./fonts/GeistVF.woff", // Path to the font in the public directory
     variable: "--font-geist-sans", // Define CSS variable for the font
     weight: "100 900", // Weight range
 });
 
 // Load GeistMono Font
 const geistMono = localFont({
-    src: "/fonts/GeistMonoVF.woff",
+    src: "./fonts/GeistMonoVF.woff",
     variable: "--font-geist-mono",
     weight: "100 900",
 });
 
 // Load FixedSys Font
 const fixedSys = localFont({
-    src: "/fonts/fsex300-webfont.woff",
+    src: "./fonts/fsex300-webfont.woff",
     variable: "--font-fixedSys",
-    weight: "normal", // Adjust this to "normal" if FixedSys doesn't support multiple weights
+    weight: "normal",
 });
 
 // Load FiraCode Font
 const firaCode = localFont({
     src: [
         {
-            path: "/fonts/FiraCode/FiraCode-Light.woff",
+            path: "./fonts/FiraCode/FiraCode-Light.woff",
             weight: "300",
             style: "normal",
         },
         {
-            path: "/fonts/FiraCode/FiraCode-Regular.woff",
+            path: "./fonts/FiraCode/FiraCode-Regular.woff",
             weight: "400",
             style: "normal",
         },
         {
-            path: "/fonts/FiraCode/FiraCode-Medium.woff",
+            path: "./fonts/FiraCode/FiraCode-Medium.woff",
             weight: "500",
             style: "normal",
         },
         {
-            path: "/fonts/FiraCode/FiraCode-SemiBold.woff",
+            path: "./fonts/FiraCode/FiraCode-SemiBold.woff",
             weight: "600",
             style: "normal",
         },
         {
-            path: "/fonts/FiraCode/FiraCode-Bold.woff",
+            path: "./fonts/FiraCode/FiraCode-Bold.woff",
             weight: "700",
             style: "normal",
         },
