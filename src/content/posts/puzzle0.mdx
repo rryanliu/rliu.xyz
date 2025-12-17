@@ -1,0 +1,89 @@
+---
+title: "A chess puzzle"
+date: "2025-12-17"
+description: "A puzzle I thought about."
+tags: ["puzzle", "blog"]
+---
+
+After my abstract algebra final, Harry, Nathan and I went downtown to get hotpot.
+On our drive back, Harry and I were thinking about a famous problem.
+A stroke of inspiration hit me and I solved it minutes before I dropped him off.
+The statement is as follows:
+
+Harry and Nathan have been trapped in a mental facility.
+The medical director wants to play a game with them for their freedom.
+Harry and Nathan may discuss a strategy beforehand, but once the game begins,
+no further direct communication is allowed.
+The rules are as follows:
+
+There is a room with a modified chessboard.
+Harry enters the room.
+The warden picks a square, opens it, and hides a key in this compartment.
+Harry can see the location of the key.
+Then, 64 coins are flipped and subsequently placed over the squares, with 1 coin to a square.
+
+Now, Harry may flip up to one square.
+
+After this, Harry must exit the room, and Nathan must enter the room.
+Nathan must find the location of the key in 1 guess.
+Devise a strategy to save Harry and Nathan.
+
+How does this relate to Group Theory?
+
+For those unfamiliar, let's go over the group axioms.
+A group $(G, \cdot)$ is a set $G$ with an operation $\cdot$ such that
+
+1. $\cdot$ is associative
+2. $G$ has an element $e$ such that $\forall x \in G,\; x \cdot e = e \cdot x = x$
+3. $\forall x \in G,\; \exists x^{-1} \in G$ such that $x \cdot x^{-1} = x^{-1} \cdot x = e$
+4. $\forall x,\; y \in G,\; x \cdot y \in G$
+
+For example: the set of integers under $+$.
+1. $+$ is associative
+2. $0 + x = x + 0 = x$.
+3. $-x + x = x + -x = 0$.
+4. the sum of 2 integers is an integer.
+
+Ok, now let's apply it to our problem.
+First, let's show $\mathbb{Z}/8\mathbb{Z}$ ($\{0, 1, \ldots, 7\}$) is a group under $\oplus$.
+
+1. xor is associative
+2. the identity element is 0
+3. the inverse of each element is itself.
+This is because when a bit is set in $x$, it is set in $x^{-1}$ to make that bit 0 after applying the operation.
+And when a bit is unset in $x$, ... blah blah blah same reasoning.
+4. taking the xor of 2 natural numbers with msb $\le 3$ cannot result in a number with msb $> 3$ so it is closed
+
+My solution:
+
+Write the chessboard as an 8x8 matrix $A$
+(0-indexed).
+Number the columns and rows.
+Let $p_i = A_{i0} \oplus A_{i1} \oplus \ldots \oplus A_{i7}$.
+So, the parity of the coins in the $i$-th row.
+Similarly, let $e_i = A_{0i} \oplus A_{1i} \oplus \ldots \oplus A_{7i}$.
+
+Let $r = 0^{p_0} \oplus 1^{p_1} \oplus \ldots \oplus 7^{p_7}$.
+In this case, $x^y$ does not mean $x$ to the power of $y$ under multiplication,
+but rather $x^y \;=\; \underbrace{x \oplus x \oplus \cdots \oplus x}_{y\ \text{times}}$.
+
+Let $c = 0^{e_0} \oplus 1^{e_1} \oplus \ldots \oplus 7^{e_7}$.
+Let $(r^{\prime}, c^{\prime})$ be the location of the key.
+How can we transform $(r, c)$ to $(r^{\prime}, c^{\prime})$ by flipping up to one single coin?
+
+This is where my intuition in group theory guided me to a solution, although knowledge of group
+theory is not required to solve this puzzle.
+Since $r^{-1} r^{\prime}$ is in $\mathbb{Z} / 8 \mathbb{Z}$, we can flip any coin in this row
+to transform $r$ to $r^{\prime}$.
+Similarly, we can also flip a coin in the $c^{-1} c^{\prime}$-th column to transform $c$ into $c^{\prime}$.
+This works for 2 reasons:
+First, there is always going to be an intersection between any row and column.
+Secondly, $\oplus$ is an involution, so every element has order 2.
+Therefore we need only flip up to one coin to transform an element into any element we desire.
+
+So now, setting aside groups groups, Harry can just
+flip the coin in row $r \oplus r^{\prime}$ and $c \oplus c^{\prime}$.
+Then, when Nathan comes in and calculates $r$ and $c$ using the same process described previously,
+he will find that $r$ and $c$ mark the square with the key.
+
+Yeah that's it
