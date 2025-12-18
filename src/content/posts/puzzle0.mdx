@@ -6,13 +6,13 @@ tags: ["puzzle", "blog"]
 ---
 
 After my abstract algebra final, Harry, Nathan and I went downtown to get hotpot.
-On our drive back, Harry and I were thinking about a famous problem.
-A rare stroke of inspiration hit me, and I began thinking about this problem in terms of groups,
+On our drive back, Harry and I were thinking about a puzzle.
+A rare stroke of inspiration hit me, and I began thinking about this problem in terms of Group Theory,
 and I solved it before I dropped Harry off.
 The statement is as follows:
 
 Harry and Nathan have been trapped in a mental facility.
-They are tired of being bound in straitjackets and toyed with by sadistic doctors and nurses, and being fed nothing but stale bread.
+They are tired of being bound in straitjackets and toyed with by sadistic staff, and being fed nothing but stale bread.
 Fortunately, the medical director wants to play a game with them for their freedom.
 Harry and Nathan may discuss a strategy beforehand, but once the game begins,
 no direct communication is allowed.
@@ -22,9 +22,9 @@ There is a room with a modified chessboard.
 Harry enters the room.
 The medical director picks a square, opens it, and hides a key in this compartment.
 Harry can see the location of the key.
-Then, 64 coins are flipped and subsequently placed over the squares, with 1 coin to a square.
+Then, 64 coins are flipped and placed over the squares, with 1 coin on each square.
 
-Now, Harry may flip up to one square.
+Now, Harry may flip up to one coin over.
 
 After this, Harry exits the room, and Nathan enters the room.
 Nathan must find the location of the key in 1 guess.
@@ -61,9 +61,9 @@ My solution:
 
 Write the chessboard as an 8x8 matrix $A$
 (0-indexed).
-Number the columns and rows.
+Let $A_{ij}$ be 1 if the coin in the $i$-th row and $j$-th column is heads, and 0 otherwise.
 Let $p_i = A_{i0} \oplus A_{i1} \oplus \ldots \oplus A_{i7}$.
-So, the parity of the coins in the $i$-th row.
+So, the xor of the coins in the $i$-th row.
 Similarly, let $e_i = A_{0i} \oplus A_{1i} \oplus \ldots \oplus A_{7i}$.
 
 Let $r = 0^{p_0} \oplus 1^{p_1} \oplus \ldots \oplus 7^{p_7}$.
